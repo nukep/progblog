@@ -1,0 +1,9 @@
+[submodule "bourbon"]
+	path = _sass/bourbon
+	url = https://github.com/thoughtbot/bourbon
+[submodule "neat"]
+	path = _sass/neat
+	url = https://github.com/thoughtbot/neat
+[submodule "js/jekyll-table-of-contents"]
+	path = js/jekyll-table-of-contents
+	url = https://github.com/ghiculescu/jekyll-table-of-contents

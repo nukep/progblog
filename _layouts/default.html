@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{%if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+	<meta charset="utf-8" />
+	<!-- On mobile devices, the viewport should fit snugly with the screen-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='//fonts.googleapis.com/css?family=Lora:400,400italic,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ "/css/main.css" | prepend:site.baseurl }}">
+	<script src="{{ "/js/jquery-2.1.3.min.js" | prepend:site.baseurl }}"></script>
+</head>
+
+<body>
+	{% include header.html %}
+	<div id="container">
+		<div id="content">
+			{{ content }}
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+baseurl: "/progblog"
+title: "Dan's Prog Blog"
+enable_disqus: true
+
+markdown: redcarpet
+highlighter: pygments
+
+redcarpet:
+  extensions: ["with_toc_data", tables, strikethrough]
+
+exclude:
+  - "README.md"
+  - "CHANGELOG.md"
+  - "CNAME"
+  - "Gemfile"
+  - "Gemfile.lock"
+
+gems:
+  - jekyll-sitemap
+
+defaults:
+  - values:
+      layout: "default"
