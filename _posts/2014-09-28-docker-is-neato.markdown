@@ -1,7 +1,6 @@
 ---
 layout: post
-title: 'Docker: Can you say "Best thing ever"?'
-date: 2014-09-28 04:14:34.000000000 -06:00
+title: 'Docker is neat-o'
 ---
 For the past few days, I've been acquainting myself with [Docker](https://www.docker.com/). Saying "it's great" is a huge understatement.
 

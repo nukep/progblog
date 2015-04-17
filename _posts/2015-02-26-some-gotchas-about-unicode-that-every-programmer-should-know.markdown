@@ -33,8 +33,6 @@ I hope this list of gotchas will help somebody.
 
 ### `"Å" == "Å"` => true _and_ false?
 
-**Alternate title: Schrödinger's "Ö".**
-
 You can try this yourself in your favorite Unicode-supporting programming language.
 The below example's lines can be entered into your browser's JavaScript REPL (F12 -> Console on most browsers):
 
