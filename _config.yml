@@ -21,3 +21,4 @@ gems:
 defaults:
   - values:
       layout: "default"
+      author: "Dan Spencer"
