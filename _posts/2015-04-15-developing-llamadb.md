@@ -117,22 +117,20 @@ Design decisions (not all yet implemented):
 
 # Made with Rust
 
-**My Rust pitch:**
-
 {% include rust-logo.html %}
 
-If you're a serious C or C++ developer, it's basically required that you
+Rust is the C++ we all deserve.
+
+If you're a serious C or C++ developer, you're basically required to
 consider the [Rust programming language](http://www.rust-lang.org).
-Like C++, Rust is made to run on the metal; it features zero-cost abstractions, RAII, and a light/non-existent runtime.
+Like C++, Rust is made to run close to the metal; it features zero-cost abstractions, RAII, and when compiled is nearly indistinguishable from equivalent C or C++ code.
 Arguably the most important feature of the Rust programming language is its
 memory safety guarantees and other invariant guarantees.
 This means: no null pointer dereferences, no data races, no use-after-free, etc.
-No segfaults are possible unless the programmer bypasses Rust's safety checks
+Segfaults are impossible unless the programmer bypasses Rust's safety checks
 with `unsafe` blocks.
 
 Oh, and did I mention built-in unit testing?
-
-So, why not use the mighty, battle-tested C++ for a database? _Because that wouldn't be nearly as fun._
 
 Relational databases have a requirement to be both _fast_ and _secure_.
 I believe that Rust is great at meeting both of these requirements.
@@ -148,23 +146,12 @@ Without ADTs, I'm almost certain that the AST module would've been lots of
 `union` spaghetti.
 
 The [`Result<T, E>`](http://doc.rust-lang.org/book/error-handling.html#handling-errors-with-option-and-result) "error handling" type is a _really good idea_.
-I generally don't like exceptions in many programming langauges, and
-I _especially_ don't like unchecked exceptions (come at me, C# developers).
-The reason for my disdain of exceptions is that they make proper encapsulation and
-auditing _difficult_.
-How can I be so sure that `foo()` doesn't throw an `IOException`?
-How can I be so sure that I've properly handled every single non-fatal error, and
-that none of them bubble up to `main()`?
-In principle, exceptions should only be used for "fatal" errors, but in practice, it's not so.
-In Rust, all non-fatal errors are return values, and all fatal errors are "panics" that abort the program.
+It's a good alternative to the exception-based error handling patterns found in other programming languages. It's an enum that can either be `Ok(T)` or `Err(E)`, and must be used by the caller. In my experience, return-based error handling is better for recoverable errors than using try/catch (which in languages like C# can be neglected).
+All non-fatal errors are return values, and all fatal errors are "panics" that unwind the stack and abort the program.
 
 The `unsafe` keyword makes code and security audits much more streamlined.
 If a segfault occurs in a Rust program, one can `Ctrl+F` for the word `unsafe`
-and investigate.
-Assuming that the Rust compiler and standard library are sound, I can guarantee
-you that LlamaDB can _never, ever_ segfault or invoke undefined behavior.
-The worst that can happen is that the program panics due to a failed assertion
-or `unimplemented!()` stub.
+and investigate. Undefined behavior bugs are now shallow.
 
 
 # Implementation details
@@ -254,7 +241,7 @@ Both the lexer and parser components are hand-written. It actually wasn't as bad
 The lexer is a very basic character-by-character tokenizer. In come characters, out go tokens.
 There isn't much about this worth talking about.
 
-The parser is a [recursive descent parser](http://en.wikipedia.org/wiki/Recursive_descent_parser).
+The parser is a [recursive descent parser](http://en.wikipedia.org/wiki/Recursive_descent_parser), like many hand-written parsers in the wild.
 This project single-handedly destroyed my pre-notion of "parsers are hard".
 The truth is, certain types of languages are really easy to hand-parse using the
 right techniques.
