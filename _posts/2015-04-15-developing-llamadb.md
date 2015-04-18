@@ -149,10 +149,9 @@ The [`Result<T, E>`](http://doc.rust-lang.org/book/error-handling.html#handling-
 It's a good alternative to the exception-based error handling patterns found in other programming languages. It's an enum that can either be `Ok(T)` or `Err(E)`, and must be used by the caller. In my experience, return-based error handling is better for recoverable errors than using try/catch (which in languages like C# can be neglected).
 All non-fatal errors are return values, and all fatal errors are "panics" that unwind the stack and abort the program.
 
-The `unsafe` keyword makes code and security audits much more streamlined.
+~~The `unsafe` keyword makes code and security audits much more streamlined.
 If a segfault occurs in a Rust program, one can `Ctrl+F` for the word `unsafe`
-and investigate. Undefined behavior bugs are now shallow.
-
+and investigate. Undefined behavior bugs are now shallow.~~ **Update (2015/04/17)**: [This is misleading/wrong](https://www.reddit.com/r/rust/comments/32wqa7/wip_llamadb_a_simple_sql_database_written_in_rust/cqfoh41).
 
 # Implementation details
 
