@@ -1,5 +1,5 @@
 baseurl: "/progblog"
-title: "Dan's Prog Blog"
+title: "Danny's Programming Blog"
 enable_disqus: true
 
 markdown: redcarpet
@@ -21,4 +21,4 @@ gems:
 defaults:
   - values:
       layout: "default"
-      author: "Dan Spencer"
+      author: "Danny Spencer"
