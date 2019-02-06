@@ -3,7 +3,7 @@ title: "Danny's Programming Blog"
 enable_disqus: true
 
 markdown: redcarpet
-highlighter: pygments
+highlighter: rogue
 
 redcarpet:
   extensions: ["with_toc_data", tables, strikethrough]
@@ -15,7 +15,7 @@ exclude:
   - "Gemfile"
   - "Gemfile.lock"
 
-gems:
+plugins:
   - jekyll-sitemap
 
 defaults:

@@ -207,7 +207,7 @@ SelectStatement {
 
 **3. Execution plan (Lisp-style notation):**
 
-```lisp
+```clojure
 (scan `person` :source-id 0
   (if
     (>=
