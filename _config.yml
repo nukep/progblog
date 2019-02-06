@@ -3,7 +3,7 @@ title: "Danny's Programming Blog"
 enable_disqus: true
 
 markdown: redcarpet
-highlighter: rogue
+highlighter: rouge
 
 redcarpet:
   extensions: ["with_toc_data", tables, strikethrough]
