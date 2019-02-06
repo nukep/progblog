@@ -1,6 +1,6 @@
 ---
 layout: post
-title: C++ is full of dark voodoo
+title: C++ and Copy Elision
 ---
 Alternate title: **You don't know C++ as well as you might think**
 
@@ -17,7 +17,7 @@ In C, you are generally advised against returning structures in functions. Retur
 ```c
 struct foo bar_bad(const struct foo *src, int value)
 {
-	struct foo n;
+    struct foo n;
     n.num = src->num + value;
     /* Copies n to return value - inefficient! */
     return n;
@@ -25,9 +25,9 @@ struct foo bar_bad(const struct foo *src, int value)
 
 void bar_better(struct foo *dst, const struct foo *src, int value)
 {
-	/* Initializes value in pre-allocated space - efficient!
+    /* Initializes value in pre-allocated space - efficient!
      * dst is also not limited to stack (can point to heap) */
-	dst->num = src->num + value;
+    dst->num = src->num + value;
 }
 ```
 
